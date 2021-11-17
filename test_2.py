@@ -13,7 +13,7 @@ while step < 15:
     step += 0.1
 
 
-def distance(row_one, row_two, number_of_columns, line_start, line_end):
+def distance(row_one, row_two, line_start, line_end):
     """ Функция вычисления минимального и максимального расстояния """
 
     global max_value, min_value, distance_distribution_dict
@@ -30,9 +30,7 @@ def distance(row_one, row_two, number_of_columns, line_start, line_end):
 def preparation_of_lists(vectors):
     """ Функция для подготовки векторов """
 
-    number_of_columns = len(vectors[0])
     number_of_lines = len(vectors)
-
     line_end = number_of_lines
     line_start = 0
 
@@ -40,7 +38,6 @@ def preparation_of_lists(vectors):
         while line_end > (line_start + 1):
             distance(vectors[line_start],
                      vectors[line_end-1],
-                     number_of_columns,
                      line_start+1,
                      line_end)
             line_end -= 1
